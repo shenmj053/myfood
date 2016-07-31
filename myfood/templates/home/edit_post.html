@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="static/css/blog.css" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div class="col-sm-10 blog-main">
+    <div class="blog-post">
+        {{ wtf.quick_form(form) }}
+    </div><hr>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

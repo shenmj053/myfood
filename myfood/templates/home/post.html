@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Post{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link href="static/css/blog.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="col-sm-10 blog-main">
+    {% include 'home/_posts.html' %}
+</div>
+{% endblock %}
