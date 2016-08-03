@@ -8,9 +8,9 @@
     <link href="static/css/blog.css" rel="stylesheet">
 {% endblock %}
 
-{% block content %}
+{% block page_content %}
 <div class="col-sm-10 blog-main">
-    {% include 'home/_posts.html' %}
+    {% include 'blog/_posts.html' %}
     <h4 id="comments">Comments</h4>
     {% if current_user.can(Permission.COMMENT) %}
     <div class="comment-form">
@@ -21,14 +21,16 @@
     {% for comment in comments %}
     <li class="comment">
         <div class="comment-content">
-            <div class="comment-date">{{ comment.timestamp }}</div>
-            <div class="comment-author">{{ comment.author.username }}</div>
+            <div class="comment-date">Commented on {{ moment(comment.timestamp).format('LLL') }}
+                By {{ comment.author.nickname }}
+            </div><br>
             <div class="comment-body">
                 {{ comment.body }}
             </div>
         </div>
-    </li>
+    </li><hr>
     {% endfor %}
 </ul>
 </div>
 {% endblock %}
+
