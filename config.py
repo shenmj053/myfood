@@ -7,7 +7,7 @@ DEBUG = True
 
 SECRET_KEY = os.environ.get('SECTET_KEY') or 'testkey'
 
-MAIL_FORM_EMAIL = "shenmj053@163.com"
+ADMIN_EMAIL = "shenmj053@163.com"
 
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(_basedir, 'myfood.sqlite')
 SQLALCHEMY_COMMIT_ON_TEARDOWN = True
