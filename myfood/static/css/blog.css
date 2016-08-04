@@ -99,7 +99,7 @@ h6, .h6 {
  */
 
 .blog-main {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -117,6 +117,25 @@ h6, .h6 {
 .sidebar-module-inset ul:last-child,
 .sidebar-module-inset ol:last-child {
   margin-bottom: 0;
+}
+
+.container {
+    padding-top: 18px;
+    padding-bottom: 12px;
+}
+
+.navbar {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+.navbar-nav li a:hover {
+    color: #1abc9c !important;
 }
 
 
@@ -164,3 +183,6 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+.bg-4 {
+      background-color: #f9f9f9; /* Black Gray */
+  }

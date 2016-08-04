@@ -1,15 +1,13 @@
 {% extends "layout.html" %}
+
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}Post{% endblock %}
 
-{% block styles %}
-    {{ super() }}
-    <link href="static/css/blog.css" rel="stylesheet">
-{% endblock %}
+
 
 {% block page_content %}
-<div class="col-sm-10 blog-main">
+<div>
     {% include 'blog/_posts.html' %}
     <h4 id="comments">Comments</h4>
     {% if current_user.can(Permission.COMMENT) %}
@@ -30,7 +28,7 @@
         </div>
     </li><hr>
     {% endfor %}
-</ul>
+    </ul>
 </div>
 {% endblock %}
 

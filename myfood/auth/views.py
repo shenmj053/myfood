@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, abort
 from flask_login import login_required, login_user, logout_user
 from ..models import User, Permission
 from .forms import LoginForm, RegistrationForm
@@ -35,6 +35,15 @@ def register():
         db.session.add(user)
         return redirect(url_for('.login'))
     return render_template('auth/register.html', form=form)
+
+
+@mod.route('/user/<nickname>')
+def user(nickname):
+    user = User.query.filter_by(nickname=nickname).first()
+    if user is None:
+        abort(404)
+    return render_template('user.html', user=user)
+
 
 
 @mod.app_context_processor

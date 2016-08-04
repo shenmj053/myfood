@@ -3,20 +3,24 @@
 
 {% block title %}MYSITE{% endblock %}
 
+{% block styles %}
+    {{ super() }}
+    <link href="{{ url_for('static', filename='css/blog.css', _external=Ture) }}" rel="stylesheet">
+{% endblock %}
+
 
 {% block navbar %}
 <nav class="navbar navbar-default" role="navigation">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ url_for('blog.index') }}">MYSITE</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="{{ url_for('blog.index') }}">Blog</a></li>
@@ -25,10 +29,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
-                <li><a href="#">{{ current_user.nickname }}</a></li>
-                <li><a href="{{ url_for('auth.logout') }}">Sign out</a></li>
+                <li><a href="{{ url_for('auth.user', nickname=current_user.nickname) }}">{{ current_user.nickname }}</a></li>
+                <li><a href="{{ url_for('auth.logout') }}"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>
                 {% else %}
-                <li><a href="{{ url_for('auth.login') }}">Sign in</a></li>
+                <li><a href="{{ url_for('auth.login') }}"><span class="glyphicon glyphicon-log-in"></span> Sign in</a></li>
                 {% endif %}
             </ul>
 
@@ -49,6 +53,8 @@
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
+
+
 
 {% block scripts %}
 {{ super() }}
