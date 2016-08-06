@@ -1,9 +1,10 @@
-from myfood import app, db
+from myfood import create_app, db
 from myfood.models import User, Role, Comment, Category
 from flask_migrate import Migrate, MigrateCommand
 from flask_script import Manager, Shell
 
 
+app = create_app('default')
 migrate = Migrate(app, db)
 manager = Manager(app)
 

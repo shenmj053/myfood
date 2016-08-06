@@ -82,10 +82,9 @@ def delete(id):
     return redirect(url_for('.index'))
 
 
-@mod.route('/secret')
-@login_required
-def secret():
-    return 'login required!'
+@mod.route('/about')
+def about():
+    return render_template('about.html')
 
 
 @mod.app_context_processor
